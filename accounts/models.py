@@ -41,13 +41,17 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
 
+    # assigning 'email' as field to USERNAME_FIELD in the model for authentication
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['user_name']
+    # assign new manager for objects creation
     objects = CustomUserManager()
 
     class Meta:
+        """human-readable for model"""
         verbose_name = 'user'
         verbose_name_plural = 'user'
 
     def __str__(self):
+        """ string representation of the model objects"""
         return self.email
