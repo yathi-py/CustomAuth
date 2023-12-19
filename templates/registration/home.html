@@ -1,0 +1,16 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+            Welcome home {{ request.user }}
+        <div>
+         Do you wish to <a href="{% url 'accounts:logout' %}">Get Out</a>
+        </div>
+
+    {% else %}
+        <a href="{% url 'accounts:login' %}">Login</a>
+        <a href="{% url 'accounts:signup' %}">Signup</a>
+    {% endif %}
+
+    </form>
+{% endblock %}

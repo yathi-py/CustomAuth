@@ -1,0 +1,15 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="Get In" value="Get In">
+    </form>
+    <a href="{% url 'accounts:signup' %}"> New User?</a>
+
+    {% for messages in form.messages %}
+        <p>{{ messages }}</p>
+    {% endfor %}
+
+{% endblock %}
